@@ -16,7 +16,6 @@
 		0CD16B3C1CCA8CE900EE6647 /* CurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD16B3B1CCA8CE900EE6647 /* CurrencyExchangeUITests.swift */; };
 		0CD16B4B1CCA994200EE6647 /* CurrencyExchange.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CD16B491CCA994200EE6647 /* CurrencyExchange.xcdatamodeld */; };
 		0CD16B531CCAA07800EE6647 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD16B511CCAA07800EE6647 /* Currency.swift */; };
-		D94AE1EB1CCB082700C2AD24 /* CurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94AE1EA1CCB082700C2AD24 /* CurrencyAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,6 @@
 		0CD16B3D1CCA8CE900EE6647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD16B4A1CCA994200EE6647 /* CurrencyExchange.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrencyExchange.xcdatamodel; sourceTree = "<group>"; };
 		0CD16B511CCAA07800EE6647 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		D94AE1EA1CCB082700C2AD24 /* CurrencyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +109,6 @@
 				0CD16B271CCA8CE900EE6647 /* Info.plist */,
 				0CD16B491CCA994200EE6647 /* CurrencyExchange.xcdatamodeld */,
 				0CD16B511CCAA07800EE6647 /* Currency.swift */,
-				D94AE1EA1CCB082700C2AD24 /* CurrencyAPI.swift */,
 			);
 			path = CurrencyExchange;
 			sourceTree = "<group>";
@@ -265,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CD16B4B1CCA994200EE6647 /* CurrencyExchange.xcdatamodeld in Sources */,
-				D94AE1EB1CCB082700C2AD24 /* CurrencyAPI.swift in Sources */,
 				0CD16B531CCAA07800EE6647 /* Currency.swift in Sources */,
 				0CD16B1E1CCA8CE900EE6647 /* ViewController.swift in Sources */,
 				0CD16B1C1CCA8CE900EE6647 /* AppDelegate.swift in Sources */,
