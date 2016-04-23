@@ -9,7 +9,10 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var nameTable: UITableView!
+    
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let urlPath: String = "http://api.fixer.io/latest"
@@ -25,10 +28,29 @@ class ViewController: UIViewController {
 //        let paths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
 //        let documentsURL = paths[0] as! NSURL
 //        print(documentsURL)
-        //Currency.modifyCurrency(self.managedObjectContext, moneyName: "USD", nowCurrency: 1.2)
-        //getAllCurrency()
+        self.nameTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        nameTable.delegate = self
+        nameTable.dataSource = self
         getAllCurrency()
     
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = nameTable.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = "aaa"
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     func getAllCurrency() {

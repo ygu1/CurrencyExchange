@@ -67,17 +67,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xzg-hL-Swn">
+                                <rect key="frame" x="370" y="265" width="100" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="49" id="GLY-nB-Whw">
+                                        <rect key="frame" x="0.0" y="28" width="100" height="49"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLY-nB-Whw" id="tzv-nN-HJW">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cx5-CW-AsH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="34h-fb-OaY"/>
+                            <constraint firstItem="xzg-hL-Swn" firstAttribute="width" secondItem="w0J-RR-q8H" secondAttribute="width" id="3P7-Pe-A85"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="leading" secondItem="bDP-H8-zkY" secondAttribute="trailing" constant="-150" id="B9f-Qw-KvC"/>
                             <constraint firstItem="giT-tq-9rU" firstAttribute="height" secondItem="kep-av-h78" secondAttribute="height" id="BsV-0z-D3Q"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="leading" secondItem="Qld-9S-QPq" secondAttribute="leading" id="KCo-Xb-WgH"/>
                             <constraint firstItem="cx5-CW-AsH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nhh-fC-4Hd"/>
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="top" secondItem="cx5-CW-AsH" secondAttribute="bottom" constant="8" id="O12-Ri-MMf"/>
+                            <constraint firstItem="xzg-hL-Swn" firstAttribute="leading" secondItem="kep-av-h78" secondAttribute="trailing" constant="20" id="P6r-uN-Lfi"/>
                             <constraint firstItem="giT-tq-9rU" firstAttribute="leading" secondItem="kep-av-h78" secondAttribute="trailing" constant="20" id="PDx-fu-TGI"/>
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="height" secondItem="cx5-CW-AsH" secondAttribute="height" multiplier="2:1" id="U1h-4c-F24"/>
+                            <constraint firstItem="xzg-hL-Swn" firstAttribute="top" secondItem="giT-tq-9rU" secondAttribute="bottom" constant="8" id="UBz-tr-1FN"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="width" secondItem="bDP-H8-zkY" secondAttribute="width" id="UyC-6N-efr"/>
                             <constraint firstItem="bDP-H8-zkY" firstAttribute="top" secondItem="Qld-9S-QPq" secondAttribute="bottom" constant="40" id="V7A-ae-doN"/>
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="top" secondItem="Qld-9S-QPq" secondAttribute="bottom" constant="40" id="XOb-7S-no1"/>
@@ -90,6 +107,7 @@
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="height" secondItem="bDP-H8-zkY" secondAttribute="height" id="kOn-yv-LfS"/>
                             <constraint firstItem="bDP-H8-zkY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="n0i-t0-DAw"/>
                             <constraint firstItem="cx5-CW-AsH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="oSe-Kp-P2d"/>
+                            <constraint firstItem="xzg-hL-Swn" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:2" id="onG-6d-9wF"/>
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="leading" secondItem="bDP-H8-zkY" secondAttribute="trailing" constant="-150" id="rEu-pf-Ct4"/>
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="width" secondItem="bDP-H8-zkY" secondAttribute="width" multiplier="1:2" id="wza-ls-EWQ"/>
                             <constraint firstItem="bDP-H8-zkY" firstAttribute="leading" secondItem="Qld-9S-QPq" secondAttribute="leading" id="xNj-iH-XDT"/>
@@ -101,9 +119,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="nameTable" destination="xzg-hL-Swn" id="FCb-sC-ovv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="195" y="278"/>
         </scene>
     </scenes>
 </document>
