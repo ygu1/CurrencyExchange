@@ -43,7 +43,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0J-RR-q8H">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0J-RR-q8H">
                                 <rect key="frame" x="370" y="168" width="100" height="30"/>
                                 <color key="backgroundColor" white="0.87855603448275865" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="menu1">
@@ -58,7 +58,7 @@
                                     <action selector="showHiddenTable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47Q-XC-Ztt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giT-tq-9rU">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giT-tq-9rU">
                                 <rect key="frame" x="370" y="227" width="100" height="30"/>
                                 <color key="backgroundColor" white="0.87855603449999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="menu2">
