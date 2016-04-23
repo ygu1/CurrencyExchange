@@ -45,21 +45,24 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0J-RR-q8H">
                                 <rect key="frame" x="370" y="168" width="100" height="30"/>
-                                <color key="backgroundColor" red="0.1627887487411499" green="0.037711590528488159" blue="0.061422683298587799" alpha="0.29865301719999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.87855603448275865" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="menu1">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showHiddenTable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47Q-XC-Ztt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giT-tq-9rU">
                                 <rect key="frame" x="370" y="227" width="100" height="30"/>
-                                <color key="backgroundColor" red="0.1627887487411499" green="0.037711590528488159" blue="0.061422683298587799" alpha="0.29865301719999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.87855603449999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="menu2">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -68,14 +71,14 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xzg-hL-Swn">
-                                <rect key="frame" x="370" y="265" width="100" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="370" y="265" width="200" height="300"/>
+                                <color key="backgroundColor" white="0.87855603449999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="49" id="GLY-nB-Whw">
-                                        <rect key="frame" x="0.0" y="28" width="100" height="49"/>
+                                        <rect key="frame" x="0.0" y="28" width="200" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLY-nB-Whw" id="tzv-nN-HJW">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -85,7 +88,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cx5-CW-AsH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="34h-fb-OaY"/>
-                            <constraint firstItem="xzg-hL-Swn" firstAttribute="width" secondItem="w0J-RR-q8H" secondAttribute="width" id="3P7-Pe-A85"/>
+                            <constraint firstItem="xzg-hL-Swn" firstAttribute="width" secondItem="w0J-RR-q8H" secondAttribute="width" multiplier="2:1" id="7FZ-c4-PuS"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="leading" secondItem="bDP-H8-zkY" secondAttribute="trailing" constant="-150" id="B9f-Qw-KvC"/>
                             <constraint firstItem="giT-tq-9rU" firstAttribute="height" secondItem="kep-av-h78" secondAttribute="height" id="BsV-0z-D3Q"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="leading" secondItem="Qld-9S-QPq" secondAttribute="leading" id="KCo-Xb-WgH"/>
@@ -120,7 +123,13 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="inputText1" destination="bDP-H8-zkY" id="pNw-zH-0ht"/>
+                        <outlet property="inputText2" destination="kep-av-h78" id="1Cr-im-4sn"/>
+                        <outlet property="moneyLabel1" destination="cx5-CW-AsH" id="7hy-7I-2U9"/>
+                        <outlet property="moneyLabel2" destination="Qld-9S-QPq" id="ju4-DN-HAN"/>
                         <outlet property="nameTable" destination="xzg-hL-Swn" id="FCb-sC-ovv"/>
+                        <outlet property="tableBtn1" destination="w0J-RR-q8H" id="G6B-rZ-g3B"/>
+                        <outlet property="tableBtn2" destination="giT-tq-9rU" id="mOs-O6-NrX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
