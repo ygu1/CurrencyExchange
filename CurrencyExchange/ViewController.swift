@@ -26,48 +26,44 @@ class ViewController: UIViewController {
 //        let documentsURL = paths[0] as! NSURL
 //        print(documentsURL)
         //Currency.modifyCurrency(self.managedObjectContext, moneyName: "USD", nowCurrency: 1.2)
+        //getAllCurrency()
         getAllCurrency()
     
     }
     
     func getAllCurrency() {
-        spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
-        spinner.center = self.view.center
-        self.view.addSubview(spinner)
-        spinner.startAnimating()
-        let url = NSURL(string:urlPath)!
-        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "GET"
-        data = NSMutableData()
-        var connection = NSURLConnection(request: request, delegate: self, startImmediately: true)
-    }
-    
-    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse)
-    { //It says the response started coming
-        NSLog("didReceiveResponse")
-    }
-    func connection(connection: NSURLConnection, didReceiveData _data: NSData)
-    { //This will be called again and again until you get the full response
-        //NSLog("didReceiveData")
-        // Appending data
-        data.appendData(_data)
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection)
-    {
-        // This will be called when the data loading is finished i.e. there is no data left to be received and now you can process the data.
-        spinner.stopAnimating()
-        NSLog("connectionDidFinishLoading")
-        var jsonError: NSError?
-        let hcards = (try! NSJSONSerialization.JSONObjectWithData(data, options: [])) as! NSMutableDictionary
-        print("\(hcards)")
-        //cards = hcards.valueForKey("Goblins vs Gnomes") as! NSMutableArray
-        //println("\(cards)")
-        dispatch_async(dispatch_get_main_queue()){
-            //self.tableView.reloadData()
+        let requestURL: NSURL = NSURL(string: urlPath)!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+        urlRequest.HTTPMethod = "GET"
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) -> Void in
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if (statusCode == 200) {
+                do{
+                    let json = (try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)) as! NSMutableDictionary
+                    let rates = json.valueForKey("rates") as! NSMutableDictionary
+                    var i = 0
+                    while i < rates.allKeys.count {
+                        if (Currency.modifyCurrency(self.managedObjectContext, moneyName: rates.allKeys[i] as! String, nowCurrency: rates.valueForKey(rates.allKeys[i] as! String) as! Double) != nil)
+                        {
+                            print("Successfully update \(rates.allKeys[i] as! String) currency to \(rates.valueForKey(rates.allKeys[i] as! String) as! Double)")
+                            
+                        }
+                        else{
+                            Currency.createInManagedObjectContext(self.managedObjectContext, moneyName: rates.allKeys[i] as! String, nowCurrency: rates.valueForKey(rates.allKeys[i] as! String) as! Double)
+                        }
+                        i += 1
+                    }
+                }catch {
+                    print("Error with Json: \(error)")
+                }
+            }
         }
-        
-        //var responseStr:NSString = NSString(data:self.data, encoding:NSUTF8StringEncoding)
+        task.resume()
     }
     
     override func didReceiveMemoryWarning() {
