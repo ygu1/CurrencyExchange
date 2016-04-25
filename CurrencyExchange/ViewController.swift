@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     @IBOutlet var nameTable: UITableView!
     @IBOutlet weak var nameTable2: UITableView!
@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     var currencyDict: NSMutableDictionary! = NSMutableDictionary()
     var currencyDictKeys: Array<String>! = Array<String>()
+    var nameDict: NSDictionary!
     
     var currency1: Double!
     var currency2: Double!
@@ -40,10 +41,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        let paths = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
 //        let documentsURL = paths[0] as! NSURL
 //        print(documentsURL)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bgImage")!)
+        nameDict = readNameList()
         setTable()
         getAllCurrency()
     }
     
+    /*
+     *   Read the name matching list "nameMatchList.plist"s
+     */
+    func readNameList() -> NSDictionary {
+        var myDict: NSDictionary!
+        if let path = NSBundle.mainBundle().pathForResource("nameMatchList", ofType: "plist") {
+            myDict = NSDictionary(contentsOfFile: path)
+        }
+        return myDict
+    }
     
     /*
      *   Show or hide table
@@ -71,14 +84,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
+    /*
+     *   Set money label
+     */
+    func  setMoneyLabel() {
+        let key1 = tableBtn1.currentTitle!
+        let key2 = tableBtn2.currentTitle!
+        currency1 = currencyDict.valueForKey(key1) as! Double
+        currency2 = currencyDict.valueForKey(key2) as! Double
+        let string1 = nameDict.valueForKey(key1) as! String
+        let string2 = nameDict.valueForKey(key2) as! String
+        moneyLabel1.text = "1 " + string1 + " equals"
+        moneyLabel2.text = String(format:"%.2f ",1.0 * currency2 / currency1)+string2
+    }
+    
     /*
      *   Set button title
      */
     func setBtn(moneyName:String, btnNumber:Int){
         if btnNumber == 1 {
+            if tableBtn2.currentTitle == moneyName {
+                tableBtn2.setTitle(tableBtn1.currentTitle, forState: .Normal)
+            }
             tableBtn1.setTitle(moneyName, forState: .Normal)
         }
         else {
+            if tableBtn1.currentTitle == moneyName {
+                tableBtn1.setTitle(tableBtn2.currentTitle, forState: .Normal)
+            }
             tableBtn2.setTitle(moneyName, forState: .Normal)
         }
     }
@@ -93,6 +127,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    /*
+     *   If text field number changed, it will calculate the currency
+     */
+    @IBAction func textFieldChanged(sender: UITextField) {
+        var changeText: UITextField!
+        var resultText: UITextField!
+        if sender == inputText1 {
+            changeText = inputText1
+            resultText = inputText2
+        }
+        else {
+            changeText = inputText2
+            resultText = inputText1
+        }
+        if (Double(changeText.text!) == nil) {
+            resultText.text = "0.00"
+        }
+        else{
+            resultText.text = String(format:"%.2f",Double(changeText.text!)! * currency2 / currency1)
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     /*
      *   Set table appearance
      */
@@ -111,6 +171,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         nameTable2.layer.borderWidth = 1
         nameTable2.layer.borderColor = UIColor.blackColor().CGColor
         nameTable2.layer.cornerRadius = 5
+        inputText1.delegate = self
+        inputText2.delegate = self
     }
     
     /*
@@ -133,7 +195,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         let key = currencyDictKeys[indexPath.row] as String
-        cell.textLabel?.text = key
+        cell.textLabel?.text = nameDict.valueForKey(key) as? String
         return cell
     }
     
@@ -141,6 +203,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let btnName = currencyDictKeys[indexPath.row] as String
         self.setBtn(btnName, btnNumber: btnSelected)
         self.setTextLabel()
+        self.setMoneyLabel()
         tableView.hidden = true
     }
     
@@ -219,6 +282,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.setBtn("EUR", btnNumber: 1)
         self.setBtn("USD", btnNumber: 2)
         self.setTextLabel()
+        self.setMoneyLabel()
     }
     
     override func didReceiveMemoryWarning() {
