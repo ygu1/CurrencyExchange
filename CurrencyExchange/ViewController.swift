@@ -133,19 +133,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func textFieldChanged(sender: UITextField) {
         var changeText: UITextField!
         var resultText: UITextField!
+        var c1: Double!
+        var c2: Double!
         if sender == inputText1 {
             changeText = inputText1
             resultText = inputText2
+            c1 = currency1
+            c2 = currency2
         }
         else {
             changeText = inputText2
             resultText = inputText1
+            c1 = currency2
+            c2 = currency1
         }
         if (Double(changeText.text!) == nil) {
             resultText.text = "0.00"
         }
         else{
-            resultText.text = String(format:"%.2f",Double(changeText.text!)! * currency2 / currency1)
+            resultText.text = String(format:"%.2f",Double(changeText.text!)! * c2 / c1)
         }
     }
     
