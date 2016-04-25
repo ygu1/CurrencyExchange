@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -69,9 +70,12 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showHiddenTable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wmh-Qy-X7D"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="49" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xzg-hL-Swn">
-                                <rect key="frame" x="370" y="265" width="200" height="300"/>
+                                <rect key="frame" x="370" y="168" width="200" height="300"/>
                                 <color key="backgroundColor" white="0.87855603449999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="49" id="GLY-nB-Whw">
@@ -84,11 +88,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O0z-tR-nfr">
+                                <rect key="frame" x="370" y="228" width="200" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="15S-tG-VEF">
+                                        <rect key="frame" x="0.0" y="28" width="200" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15S-tG-VEF" id="DjQ-jS-eWI">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cx5-CW-AsH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="34h-fb-OaY"/>
+                            <constraint firstItem="O0z-tR-nfr" firstAttribute="width" secondItem="xzg-hL-Swn" secondAttribute="width" id="3FJ-iP-sNm"/>
                             <constraint firstItem="xzg-hL-Swn" firstAttribute="width" secondItem="w0J-RR-q8H" secondAttribute="width" multiplier="2:1" id="7FZ-c4-PuS"/>
+                            <constraint firstItem="O0z-tR-nfr" firstAttribute="height" secondItem="xzg-hL-Swn" secondAttribute="height" id="7xu-3N-Eji"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="leading" secondItem="bDP-H8-zkY" secondAttribute="trailing" constant="-150" id="B9f-Qw-KvC"/>
                             <constraint firstItem="giT-tq-9rU" firstAttribute="height" secondItem="kep-av-h78" secondAttribute="height" id="BsV-0z-D3Q"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="leading" secondItem="Qld-9S-QPq" secondAttribute="leading" id="KCo-Xb-WgH"/>
@@ -97,7 +117,7 @@
                             <constraint firstItem="xzg-hL-Swn" firstAttribute="leading" secondItem="kep-av-h78" secondAttribute="trailing" constant="20" id="P6r-uN-Lfi"/>
                             <constraint firstItem="giT-tq-9rU" firstAttribute="leading" secondItem="kep-av-h78" secondAttribute="trailing" constant="20" id="PDx-fu-TGI"/>
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="height" secondItem="cx5-CW-AsH" secondAttribute="height" multiplier="2:1" id="U1h-4c-F24"/>
-                            <constraint firstItem="xzg-hL-Swn" firstAttribute="top" secondItem="giT-tq-9rU" secondAttribute="bottom" constant="8" id="UBz-tr-1FN"/>
+                            <constraint firstItem="xzg-hL-Swn" firstAttribute="top" secondItem="giT-tq-9rU" secondAttribute="bottom" constant="-89" id="UBz-tr-1FN"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="width" secondItem="bDP-H8-zkY" secondAttribute="width" id="UyC-6N-efr"/>
                             <constraint firstItem="bDP-H8-zkY" firstAttribute="top" secondItem="Qld-9S-QPq" secondAttribute="bottom" constant="40" id="V7A-ae-doN"/>
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="top" secondItem="Qld-9S-QPq" secondAttribute="bottom" constant="40" id="XOb-7S-no1"/>
@@ -105,8 +125,10 @@
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a9S-CV-D9Y"/>
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="width" secondItem="cx5-CW-AsH" secondAttribute="width" id="biC-ZV-mZs"/>
                             <constraint firstItem="kep-av-h78" firstAttribute="top" secondItem="bDP-H8-zkY" secondAttribute="bottom" constant="30" id="c4a-zz-umO"/>
+                            <constraint firstItem="O0z-tR-nfr" firstAttribute="top" secondItem="w0J-RR-q8H" secondAttribute="bottom" constant="30" id="eLl-JQ-cWk"/>
                             <constraint firstItem="giT-tq-9rU" firstAttribute="top" secondItem="w0J-RR-q8H" secondAttribute="bottom" constant="29" id="gB0-cM-FhB"/>
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="leading" secondItem="bDP-H8-zkY" secondAttribute="trailing" constant="20" id="gZu-Ub-i36"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O0z-tR-nfr" secondAttribute="trailing" constant="10" id="iHZ-Nf-Qyu"/>
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="height" secondItem="bDP-H8-zkY" secondAttribute="height" id="kOn-yv-LfS"/>
                             <constraint firstItem="bDP-H8-zkY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="n0i-t0-DAw"/>
                             <constraint firstItem="cx5-CW-AsH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="oSe-Kp-P2d"/>
@@ -114,11 +136,13 @@
                             <constraint firstItem="Qld-9S-QPq" firstAttribute="leading" secondItem="bDP-H8-zkY" secondAttribute="trailing" constant="-150" id="rEu-pf-Ct4"/>
                             <constraint firstItem="w0J-RR-q8H" firstAttribute="width" secondItem="bDP-H8-zkY" secondAttribute="width" multiplier="1:2" id="wza-ls-EWQ"/>
                             <constraint firstItem="bDP-H8-zkY" firstAttribute="leading" secondItem="Qld-9S-QPq" secondAttribute="leading" id="xNj-iH-XDT"/>
+                            <constraint firstItem="O0z-tR-nfr" firstAttribute="leading" secondItem="kep-av-h78" secondAttribute="trailing" constant="20" id="xw0-qE-Z1z"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="rEu-pf-Ct4"/>
                                 <exclude reference="B9f-Qw-KvC"/>
+                                <exclude reference="iHZ-Nf-Qyu"/>
                             </mask>
                         </variation>
                     </view>
@@ -128,6 +152,7 @@
                         <outlet property="moneyLabel1" destination="cx5-CW-AsH" id="7hy-7I-2U9"/>
                         <outlet property="moneyLabel2" destination="Qld-9S-QPq" id="ju4-DN-HAN"/>
                         <outlet property="nameTable" destination="xzg-hL-Swn" id="FCb-sC-ovv"/>
+                        <outlet property="nameTable2" destination="O0z-tR-nfr" id="zm4-u9-yuI"/>
                         <outlet property="tableBtn1" destination="w0J-RR-q8H" id="G6B-rZ-g3B"/>
                         <outlet property="tableBtn2" destination="giT-tq-9rU" id="mOs-O6-NrX"/>
                     </connections>

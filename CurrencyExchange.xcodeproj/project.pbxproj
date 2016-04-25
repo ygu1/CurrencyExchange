@@ -16,6 +16,7 @@
 		0CD16B3C1CCA8CE900EE6647 /* CurrencyExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD16B3B1CCA8CE900EE6647 /* CurrencyExchangeUITests.swift */; };
 		0CD16B4B1CCA994200EE6647 /* CurrencyExchange.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CD16B491CCA994200EE6647 /* CurrencyExchange.xcdatamodeld */; };
 		0CD16B531CCAA07800EE6647 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD16B511CCAA07800EE6647 /* Currency.swift */; };
+		D94AE1ED1CCE833600C2AD24 /* nameMatchList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D94AE1EC1CCE833600C2AD24 /* nameMatchList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0CD16B3D1CCA8CE900EE6647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CD16B4A1CCA994200EE6647 /* CurrencyExchange.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrencyExchange.xcdatamodel; sourceTree = "<group>"; };
 		0CD16B511CCAA07800EE6647 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		D94AE1EC1CCE833600C2AD24 /* nameMatchList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nameMatchList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				0CD16B1B1CCA8CE900EE6647 /* AppDelegate.swift */,
+				D94AE1EC1CCE833600C2AD24 /* nameMatchList.plist */,
 				0CD16B1D1CCA8CE900EE6647 /* ViewController.swift */,
 				0CD16B1F1CCA8CE900EE6647 /* Main.storyboard */,
 				0CD16B221CCA8CE900EE6647 /* Assets.xcassets */,
@@ -238,6 +241,7 @@
 				0CD16B261CCA8CE900EE6647 /* LaunchScreen.storyboard in Resources */,
 				0CD16B231CCA8CE900EE6647 /* Assets.xcassets in Resources */,
 				0CD16B211CCA8CE900EE6647 /* Main.storyboard in Resources */,
+				D94AE1ED1CCE833600C2AD24 /* nameMatchList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

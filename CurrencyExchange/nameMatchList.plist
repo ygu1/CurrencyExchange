@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ZAR</key>
+	<string>South African Rand</string>
+	<key>USD</key>
+	<string>US Dollar</string>
+	<key>TRY</key>
+	<string>Turkish Lira</string>
+	<key>THB</key>
+	<string>Thai Baht</string>
+	<key>SGD</key>
+	<string>Singapore Dollar</string>
+	<key>SEK</key>
+	<string>Swedish Krona</string>
+	<key>RUB</key>
+	<string>Russian Ruble</string>
+	<key>RON</key>
+	<string>Romanian Leu</string>
+	<key>PLN</key>
+	<string>Polish Zloty</string>
+	<key>PHP</key>
+	<string>Philippine Peso</string>
+	<key>NZD</key>
+	<string>New Zealand Dollar</string>
+	<key>NOK</key>
+	<string>Norwegian Krone</string>
+	<key>MYR</key>
+	<string>Malaysian Ringgit</string>
+	<key>MXN</key>
+	<string>Mexican Peso</string>
+	<key>KRW</key>
+	<string>South Korean Won</string>
+	<key>JPY</key>
+	<string>Japanese Yen</string>
+	<key>INR</key>
+	<string>Indian Rupee</string>
+	<key>ILS</key>
+	<string>Israeli New Sheqel</string>
+	<key>IDR</key>
+	<string>Indonesian Rupiah</string>
+	<key>HUF</key>
+	<string>Hungarian Forint</string>
+	<key>HRK</key>
+	<string>Croatian Kuna</string>
+	<key>HKD</key>
+	<string>Hong Kong Dollar</string>
+	<key>GBP</key>
+	<string>British Pound</string>
+	<key>EUR</key>
+	<string>Euro</string>
+	<key>DKK</key>
+	<string>Danish Krone</string>
+	<key>CZK</key>
+	<string>Czech Republic Koruna</string>
+	<key>CNY</key>
+	<string>Chinese Yuan</string>
+	<key>CHF</key>
+	<string>Swiss Franc</string>
+	<key>CAD</key>
+	<string>Canadian Dollar</string>
+	<key>BRL</key>
+	<string>Brazilian Real</string>
+	<key>BGN</key>
+	<string>Bulgarian Lev</string>
+	<key>AUD</key>
+	<string>Australian Dollar</string>
+</dict>
+</plist>

@@ -12,6 +12,7 @@ import CoreData
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var nameTable: UITableView!
+    @IBOutlet weak var nameTable2: UITableView!
     @IBOutlet weak var moneyLabel1: UILabel!
     @IBOutlet weak var moneyLabel2: UILabel!
     @IBOutlet weak var tableBtn1: UIButton!
@@ -48,13 +49,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      *   Show or hide table
      */
     @IBAction func showHiddenTable(sender: UIButton) {
-        if nameTable.hidden {
-            nameTable.hidden = false
-            let tempFrame = CGRect(x: tableBtn1.frame.origin.x, y: tableBtn1.frame.origin.y, width: nameTable.frame.size.width, height: nameTable.frame.size.height)
-            nameTable.frame = tempFrame
+        var tableView: UITableView!
+        var tableView2: UITableView!
+        if sender.tag == 1 {
+            tableView = nameTable
+            tableView2 = nameTable2
+        }
+        else if sender.tag == 2 {
+            tableView = nameTable2
+            tableView2 = nameTable
         }
         else {
-            //nameTable.hidden = true
+            print("No button tag match")
+        }
+        if tableView.hidden {
+            tableView2.hidden = true
+            tableView.hidden = false
+            let tempFrame = CGRect(x: sender.frame.origin.x, y: sender.frame.origin.y, width: tableView.frame.size.width, height: tableView.frame.size.height)
+            tableView.frame = tempFrame
+            btnSelected = sender.tag
         }
     }
     
@@ -91,6 +104,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         nameTable.layer.borderWidth = 1
         nameTable.layer.borderColor = UIColor.blackColor().CGColor
         nameTable.layer.cornerRadius = 5
+        self.nameTable2.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        nameTable2.delegate = self
+        nameTable2.dataSource = self
+        nameTable2.hidden = true
+        nameTable2.layer.borderWidth = 1
+        nameTable2.layer.borderColor = UIColor.blackColor().CGColor
+        nameTable2.layer.cornerRadius = 5
     }
     
     /*
@@ -111,14 +131,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      *   Set cell in the table
      */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = nameTable.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         let key = currencyDictKeys[indexPath.row] as String
         cell.textLabel?.text = key
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        let btnName = currencyDictKeys[indexPath.row] as String
+        self.setBtn(btnName, btnNumber: btnSelected)
+        self.setTextLabel()
+        tableView.hidden = true
     }
     
     /*
@@ -191,6 +214,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         dispatch_async(dispatch_get_main_queue()){
             self.spinner.stopAnimating()
             self.nameTable.reloadData()
+            self.nameTable2.reloadData()
         }
         self.setBtn("EUR", btnNumber: 1)
         self.setBtn("USD", btnNumber: 2)
